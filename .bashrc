@@ -1,7 +1,3 @@
-# Start bash in home (probably better way to do this)
-cd
-
-
 # General unix
 alias reloadbash="source ~/.bashrc"
 
