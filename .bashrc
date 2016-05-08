@@ -18,10 +18,3 @@ alias gaa="git add -A"
 alias gc="git commit -m"
 alias gd="git diff"
 
-# Environment-specific
-alias projects="cd /c/Users/Michael/Documents/Projects"
-alias ffon="cd /c/Users/Michael/Documents/Visual/ Studio/ 2015/Projects/ffon"
-alias deploybadgermusicplayer="sh /c/Users/Michael/Documents/Projects/deploybadgermusicplayer.sh"
-alias deploybadgerchat="sh /c/Users/Michael/Documents/Projects/deploybadgerchat.sh"
-alias deploymyshoutbox="sh /c/Users/Michael/Documents/Projects/deploymyshoutbox.sh"
-
