@@ -1,0 +1,3 @@
+# Environment specific
+alias lebusa="cd /c/Users/Michael/Documents/Projects/CityMayhem/forum-theme-lebusa" 
+alias deploybadgerchat="sh /c/Users/Michael/Documents/Projects/CityMayhem/deploy-badger-chat.sh"
