@@ -31,4 +31,6 @@ elif [[ $bashEnv == "desktop" ]]; then
 	echo "Deployed desktop environment specific bashrc"
 fi
 
-echo "Done."
+printf "\n"
+echo "Done. You will need to reload your bashrc file: source ~/.bashrc"
+echo "Or if you already had this script: reloadbash"
