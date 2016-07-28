@@ -8,9 +8,11 @@ fi
 
 bashEnv=$1
 
-relPath="`dirname \"$0\"`"
-absPath="`( cd \"$relPath\" && pwd )`"
-if [[ -z "$absPath" ]] ; then
+installPath="$HOME"
+relSourcePath="`dirname \"$0\"`"
+sourcePath="`( cd \"$relSourcePath\" && pwd )`"
+
+if [[ -z "$sourcePath" ]] ; then
 	echo "Error: I can't seem to access the directory where this script is located."
 	exit 1
 fi
@@ -20,14 +22,15 @@ if [[ -w ~/.bashrc ]]; then
 	echo "Moved existing .bashrc to ~/.bashrc.old"
 fi
 
-cp "$absPath/.bashrc" ~/
+cp "$sourcePath/bashrc" $installPath
+mv "$installPath/bashrc" "$installPath/.bashrc"
 echo "Deployed .bashrc"
 
 if [[ $bashEnv == "laptop" ]]; then
-	cat "$absPath/.bashrc-laptop" >> ~/.bashrc
+	cat "$sourcePath/bashrc-laptop" >> "$installPath/.bashrc"
 	echo "Deployed laptop environment specific bashrc"
 elif [[ $bashEnv == "desktop" ]]; then
-	cat "$absPath/.bashrc-desktop" >> ~/.bashrc
+	cat "$sourcePath/bashrc-desktop" >> "$installPath/.bashrc"
 	echo "Deployed desktop environment specific bashrc"
 fi
 

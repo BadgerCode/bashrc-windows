@@ -60,4 +60,5 @@ alias gs="git status"
 alias gaa="git add -A"
 alias gc="git commit -m"
 alias gd="git diff"
+alias gp="git push"
 
