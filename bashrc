@@ -56,6 +56,11 @@ alias msbuild="/c/Windows/Microsoft.NET/Framework64/v4.0.30319/msbuild.exe"
 alias mysql="winpty 'C:\Program Files\MySQL\MySQL Server 5.7\bin\mysql.exe'"
 
 # Git
+# Config
+git config --global user.email "BadgerCode@users.noreply.github.com"
+git config --global user.name "Michael Hawkins"
+git config --global core.askpass ''
+# Aliases
 alias gs="git status"
 alias gaa="git add -A"
 alias gc="git commit -m"
