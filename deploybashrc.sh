@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -z "$1" ]]; then
-	echo "Pick an environment: laptop|desktop|default"
+	echo "Pick an environment: laptop|desktop|uni|default"
 	echo "E.g. deploybashrc.sh default"
 	exit
 fi
@@ -32,6 +32,9 @@ if [[ $bashEnv == "laptop" ]]; then
 elif [[ $bashEnv == "desktop" ]]; then
 	cat "$sourcePath/bashrc-desktop" >> "$installPath/.bashrc"
 	echo "Deployed desktop environment specific bashrc"
+elif [[ $bashEnv == "uni" ]]; then
+	cat "$sourcePath/bashrc-uni" >> "$installPath/.bashrc"
+        echo "Deployed university environment specific bashrc"
 fi
 
 printf "\n"
