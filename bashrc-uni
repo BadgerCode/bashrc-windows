@@ -1,4 +1,5 @@
 # Uni-specific changes
 # If make doesn't exist, set up an alias
 hash make 2>/dev/null || { echo "Make not found. Using Z drive version."; 
-                           make() { "/z/Programs/Make/bin/make.exe" $@; }; }
+                           make() { "/z/Programs/Make/bin/make.exe" $@; };
+                           export -f make; }
