@@ -1,5 +1,10 @@
 # Uni-specific changes
-# If make doesn't exist, set up an alias
+# MAKE
 hash make 2>/dev/null || { echo "Make not found. Using Z drive version."; 
                            make() { "/z/Programs/Make/bin/make.exe" $@; };
                            export -f make; }
+
+# NODE
+hash npm 2>/dev/null || { echo "npm not found. Using portable version."; 
+                           npm() { "/c/Users/psymh3/Documents/Node/npm" $@; };
+			                              export -f npm; }
