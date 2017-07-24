@@ -26,6 +26,7 @@ cp "$sourcePath/bashrc" $installPath
 mv "$installPath/bashrc" "$installPath/.bashrc"
 echo "Deployed .bashrc"
 
+
 if [[ $bashEnv == "laptop" ]]; then
 	cat "$sourcePath/bashrc-laptop" >> "$installPath/.bashrc"
 	echo "Deployed laptop environment specific bashrc"
@@ -35,6 +36,9 @@ elif [[ $bashEnv == "desktop" ]]; then
 elif [[ $bashEnv == "uni" ]]; then
 	cat "$sourcePath/bashrc-uni" >> "$installPath/.bashrc"
         echo "Deployed university environment specific bashrc"
+elif [[ $bashEnv == "work" ]]; then
+	cat "$sourcePath/bashrc-work" >> "$installPath/.bashrc"
+	echo "Deployed work environment specific bashrc"
 fi
 
 printf "\n"
