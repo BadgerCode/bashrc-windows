@@ -59,6 +59,7 @@ alias mysql="winpty 'C:\Program Files\MySQL\MySQL Server 5.7\bin\mysql.exe'"
 # Config
 git config --global user.email "BadgerCode@users.noreply.github.com"
 git config --global user.name "Michael Hawkins"
+git config --system credential.manager ''
 git config --global core.askpass ''
 # Aliases
 alias gs="git status"
