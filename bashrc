@@ -1,5 +1,5 @@
-# Start bash in home (probably better way to do this)
-cd
+# To start bash in a specific directory by default in Windows, right click the shortcut and set the start in location
+# The shortcut will probably be located in your own appdata, so it's fine to hardcode it to your own personal user folder
 
 # HTTP Ping
 function pingSite {
@@ -45,7 +45,7 @@ function httpping {
 }
 
 # General unix
-alias reloadbash="source ~/.bashrc; cd -"
+alias reloadbash="source ~/.bashrc"
 export -f httpping
 
 # General windows
@@ -59,8 +59,8 @@ alias mysql="winpty 'C:\Program Files\MySQL\MySQL Server 5.7\bin\mysql.exe'"
 # Config
 git config --global user.email "BadgerCode@users.noreply.github.com"
 git config --global user.name "Michael Hawkins"
-git config --system credential.manager ''
 git config --global core.askpass ''
+
 # Aliases
 alias gs="git status"
 alias gaa="git add -A"
