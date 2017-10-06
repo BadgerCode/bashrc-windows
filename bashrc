@@ -5,7 +5,7 @@
 function pingSite {
 	site=$1
 	timeInSeconds="$(curl -o /dev/null -s -w %{time_total}\\n $site)"
-	timeInMs=$(echo $timeInSeconds | sed -r 's/^.*0*([0-9]*)\.([0-9]{0,3}).*$/\1\2ms/' )
+	timeInMs=$(echo $timeInSeconds | sed -r 's/^.*([0-9]+)\.([0-9]{0,3}).*$/\1\2ms/' | sed -r 's/0*(([1-9][0-9]*)?[0-9]ms)/\1/' )
 	echo $timeInMs;
 }
 
