@@ -65,6 +65,7 @@ git config --global core.askpass ''
 alias gs="git status"
 alias gaa="git add -A"
 alias gc="git commit -m"
+alias gca="git commit --amend"
 alias gd="git diff"
 alias gp="git push"
 
