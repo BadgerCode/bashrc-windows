@@ -1,6 +1,0 @@
-# Environment specific
-alias lebusa="cd /c/Users/Michael/Documents/Projects/CityMayhem/forum-theme-lebusa" 
-alias deploybadgerchat="sh /c/Users/Michael/Documents/Projects/CityMayhem/deploy-badger-chat.sh"
-alias deploymyshoutbox="sh /c/Users/Michael/Documents/Projects/deploymyshoutbox.sh"
-
-ghci() { /c/Program\ Files/Haskell\ Platform/8.0.1/bin/ghcii.sh $@; }
