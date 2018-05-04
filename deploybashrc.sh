@@ -27,10 +27,7 @@ mv "$installPath/bashrc" "$installPath/.bashrc"
 echo "Deployed .bashrc"
 
 
-if [[ $bashEnv == "laptop" ]]; then
-	cat "$sourcePath/bashrc-laptop" >> "$installPath/.bashrc"
-	echo "Deployed laptop environment specific bashrc"
-elif [[ $bashEnv == "desktop" ]]; then
+if [[ $bashEnv == "desktop" ]]; then
 	cat "$sourcePath/bashrc-desktop" >> "$installPath/.bashrc"
 	echo "Deployed desktop environment specific bashrc"
 elif [[ $bashEnv == "work" ]]; then
