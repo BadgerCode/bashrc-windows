@@ -33,9 +33,6 @@ if [[ $bashEnv == "laptop" ]]; then
 elif [[ $bashEnv == "desktop" ]]; then
 	cat "$sourcePath/bashrc-desktop" >> "$installPath/.bashrc"
 	echo "Deployed desktop environment specific bashrc"
-elif [[ $bashEnv == "uni" ]]; then
-	cat "$sourcePath/bashrc-uni" >> "$installPath/.bashrc"
-        echo "Deployed university environment specific bashrc"
 elif [[ $bashEnv == "work" ]]; then
 	cat "$sourcePath/bashrc-work" >> "$installPath/.bashrc"
 	echo "Deployed work environment specific bashrc"
