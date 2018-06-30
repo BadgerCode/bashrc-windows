@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -z "$1" ]]; then
-	echo "Pick an environment: laptop|desktop|uni|default"
+	echo "Pick an environment: desktop|work|default"
 	echo "E.g. deploybashrc.sh default"
 	exit
 fi
