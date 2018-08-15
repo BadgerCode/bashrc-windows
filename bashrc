@@ -44,6 +44,33 @@ function httpping {
 	done
 }
 
+function gitprune {
+	if [[ -z "$1" ]]; then
+		printf "Please specify master branch name. EVERY merged local branch apart from the master branch will be DELETED. e.g. gitprune master\n"
+		return;
+	fi
+
+	master=$1
+	currentBranch=$(git rev-parse --abbrev-ref HEAD)
+
+	if [ "$currentBranch" != "$master" ]; then
+		printf "Please checkout your master branch first.\n"
+		return;
+	fi
+
+	printf "Pruning remote branches that no longer exist...\n"
+	git remote prune origin
+	branches=$(git branch --merged | grep -v $master)
+
+	if [[ -z "$branches" ]]; then
+		printf "No local merged branches to delete.\n"
+		return;
+	fi
+
+	printf "Pruning local merged branches...\n"
+	echo $branches | xargs git branch -d
+}
+
 # General unix
 alias reloadbash="source ~/.bashrc"
 export -f httpping
