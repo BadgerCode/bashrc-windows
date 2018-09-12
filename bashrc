@@ -71,6 +71,16 @@ function gitprune {
 	echo $branches | xargs git branch -d
 }
 
+function github {
+        remote=$1
+
+        if [[ -z "$remote" ]]; then
+                remote="origin"
+        fi
+
+        git remote get-url origin | sed 's/git@github.com:\(.*\)\.git/https:\/\/github.com\/\1/' | xargs start
+}
+
 # General unix
 alias reloadbash="source ~/.bashrc"
 export -f httpping
