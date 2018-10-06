@@ -1,13 +1,5 @@
 #!/bin/bash
 
-if [[ -z "$1" ]]; then
-	echo "Pick an environment: desktop|work|default"
-	echo "E.g. deploybashrc.sh default"
-	exit
-fi
-
-bashEnv=$1
-
 installPath="$HOME"
 relSourcePath="`dirname \"$0\"`"
 sourcePath="`( cd \"$relSourcePath\" && pwd )`"
@@ -26,14 +18,6 @@ cp "$sourcePath/bashrc" $installPath
 mv "$installPath/bashrc" "$installPath/.bashrc"
 echo "Deployed .bashrc"
 
-
-if [[ $bashEnv == "desktop" ]]; then
-	cat "$sourcePath/bashrc-desktop" >> "$installPath/.bashrc"
-	echo "Deployed desktop environment specific bashrc"
-elif [[ $bashEnv == "work" ]]; then
-	cat "$sourcePath/bashrc-work" >> "$installPath/.bashrc"
-	echo "Deployed work environment specific bashrc"
-fi
 
 printf "\n"
 echo "Done. You will need to reload your bashrc file: source ~/.bashrc"
