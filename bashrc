@@ -81,6 +81,18 @@ function github {
         git remote get-url origin | sed 's/git@github.com:\(.*\)\.git/https:\/\/github.com\/\1/' | xargs start
 }
 
+function pr {
+	branch=$(git branch | grep "\* " | sed 's/\* \(.*\)/\1/')
+
+        if [[ -z "$branch" ]]; then
+		printf "Could not get active branch"
+                return;
+        fi
+
+	baseUrl=$(git remote get-url origin | sed 's/git@github.com:\(.*\)\.git/https:\/\/github.com\/\1\/compare\//')
+	echo "$baseUrl$branch" | xargs start
+}
+
 # General unix
 alias reloadbash="source ~/.bashrc"
 export -f httpping
