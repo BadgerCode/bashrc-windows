@@ -117,4 +117,5 @@ alias gc="git commit -m"
 alias gca="git commit --amend"
 alias gd="git diff"
 alias gp="git push"
+alias gitbranch="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
 
