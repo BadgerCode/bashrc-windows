@@ -101,6 +101,7 @@ export -f httpping
 alias here="start ."
 alias npp="start /c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe"
 alias vis="find . -name *.sln -not -path '*/node_modules/*' | xargs -n 1 start"
+alias map="find . -name *.vmf | xargs -n 1 start"
 alias msbuild="/c/Windows/Microsoft.NET/Framework64/v4.0.30319/msbuild.exe"
 alias mysql="winpty 'C:\Program Files\MySQL\MySQL Server 5.7\bin\mysql.exe'"
 
