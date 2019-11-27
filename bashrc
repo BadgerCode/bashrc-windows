@@ -71,23 +71,36 @@ function gitprune {
 	echo $branches | xargs git branch -d
 }
 
-function github {
-        remote=$1
+function gitremote {
+	remote=$1
 
-        if [[ -z "$remote" ]]; then
-                remote="origin"
-        fi
+	if [[ -z "$remote" ]]; then
+		remote="origin"
+	fi
 
-        git remote get-url origin | sed 's/git@github.com:\(.*\)\.git/https:\/\/github.com\/\1/' | xargs start
+	url=$(git remote get-url origin)
+
+	if [[ $url == *"github"* ]]; then
+		echo $url | sed 's/git@github.com:\(.*\)\.git/https:\/\/github.com\/\1/' | xargs start
+	elif [[ $url == *"dev.azure.com"* ]]; then
+		echo $url |  sed 's/.*@.*dev.azure.com:[a-z0-9]*\/\(.*\)\/\(.*\)/https:\/\/dev.azure.com\/\1\/_git\/\2/' | xargs start
+	elif [[ $url == *"visualstudio.com"* ]]; then
+		echo $url |  sed 's/.*@vs-ssh.visualstudio.com:[a-z0-9]*\/\(.*\)\/\(.*\)/https:\/\/dev.azure.com\/\1\/_git\/\2/' | xargs start
+	else
+		echo "Unknown remote repo- '${url}''"
+	fi
 }
+
+alias github="gitremote"
+alias devops="gitremote"
 
 function pr {
 	branch=$(git branch | grep "\* " | sed 's/\* \(.*\)/\1/')
 
-        if [[ -z "$branch" ]]; then
-		printf "Could not get active branch"
-                return;
-        fi
+		if [[ -z "$branch" ]]; then
+			printf "Could not get active branch"
+			return;
+		fi
 
 	baseUrl=$(git remote get-url origin | sed 's/git@github.com:\(.*\)\.git/https:\/\/github.com\/\1\/compare\//')
 	echo "$baseUrl$branch" | xargs start
