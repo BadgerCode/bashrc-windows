@@ -86,12 +86,15 @@ function gitremote {
 		echo $url |  sed 's/.*@.*dev.azure.com:[a-z0-9]*\/\(.*\)\/\(.*\)/https:\/\/dev.azure.com\/\1\/_git\/\2/' | xargs start
 	elif [[ $url == *"visualstudio.com"* ]]; then
 		echo $url |  sed 's/.*@vs-ssh.visualstudio.com:[a-z0-9]*\/\(.*\)\/\(.*\)/https:\/\/dev.azure.com\/\1\/_git\/\2/' | xargs start
+	elif [[ $url == *"gitlab.com"* ]]; then
+		echo $url | sed 's/git@gitlab.com:\(.*\)\.git/https:\/\/gitlab.com\/\1/' | xargs start
 	else
 		echo "Unknown remote repo- '${url}''"
 	fi
 }
 
 alias github="gitremote"
+alias gitlab="gitremote"
 alias devops="gitremote"
 
 function pr {
