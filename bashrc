@@ -116,7 +116,7 @@ export -f httpping
 # General windows
 alias here="start ."
 alias vis="find . -name \"*.sln\" -not -path '*/node_modules/*' | xargs -n 1 start"
-alias map="find . -name \"*.vmf\" | xargs -n 1 start" # Source SDK Hammer
+alias map="find . -name \"*.vmf\" -not -path '*/instances/*' | xargs -n 1 start" # Source SDK Hammer
 alias vscode="code ."
 
 # Git
