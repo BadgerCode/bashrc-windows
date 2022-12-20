@@ -81,13 +81,15 @@ function gitremote {
 	url=$(git remote get-url origin)
 
 	if [[ $url == *"github"* ]]; then
-		echo $url | sed 's/git@github.com:\(.*\)\.git/https:\/\/github.com\/\1/' | xargs start
+		echo $url | sed 's/git@github.com:\(.*\)\.git/https:\/\/github.com\/\1/' | xargs explorer
 	elif [[ $url == *"dev.azure.com"* ]]; then
-		echo $url |  sed 's/.*@.*dev.azure.com:[a-z0-9]*\/\(.*\)\/\(.*\)/https:\/\/dev.azure.com\/\1\/_git\/\2/' | xargs start
+		echo $url |  sed 's/.*@.*dev.azure.com:[a-z0-9]*\/\(.*\)\/\(.*\)/https:\/\/dev.azure.com\/\1\/_git\/\2/' | xargs explorer
 	elif [[ $url == *"visualstudio.com"* ]]; then
-		echo $url |  sed 's/.*@vs-ssh.visualstudio.com:[a-z0-9]*\/\(.*\)\/\(.*\)/https:\/\/dev.azure.com\/\1\/_git\/\2/' | xargs start
+		echo $url |  sed 's/.*@vs-ssh.visualstudio.com:[a-z0-9]*\/\(.*\)\/\(.*\)/https:\/\/dev.azure.com\/\1\/_git\/\2/' | xargs explorer
 	elif [[ $url == *"gitlab.com"* ]]; then
-		echo $url | sed 's/git@gitlab.com:\(.*\)\.git/https:\/\/gitlab.com\/\1/' | xargs start
+		echo $url | sed 's/git@gitlab.com:\(.*\)\.git/https:\/\/gitlab.com\/\1/' | xargs explorer
+	elif [[ $url == *"bitbucket.org"* ]]; then
+                echo $url |  sed 's/git@bitbucket.org:\(.*\)\.git/https:\/\/bitbucket.org\/\1/' | xargs explorer
 	else
 		echo "Unknown remote repo- '${url}''"
 	fi
@@ -106,7 +108,7 @@ function pr {
 		fi
 
 	baseUrl=$(git remote get-url origin | sed 's/git@github.com:\(.*\)\.git/https:\/\/github.com\/\1\/compare\//')
-	echo "$baseUrl$branch" | xargs start
+	echo "$baseUrl$branch" | xargs explorer
 }
 
 # General unix
