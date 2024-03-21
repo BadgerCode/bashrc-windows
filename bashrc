@@ -141,3 +141,32 @@ alias gitbranch="git for-each-ref --sort=committerdate refs/heads/ --format='%(H
 alias vue='winpty vue.cmd' # Fixes issues on Windows using Git Bash with minTTY
 
 
+
+# Node Version Manager (NVM) switch fixes
+# Requires NVM- https://github.com/coreybutler/nvm-windows/releases
+function nvmuse {
+	if [[ -z "$1" ]]; then
+		printf "You can specify a second site to ping with:\nhttpping http://mysite.com\n\n"
+		echo "Please specify a version- nvmuse 20.11.1"
+		return;
+	fi
+
+	# Requires developer mode to enable symlinks
+	nodeDirPath="$HOME/AppData/Roaming/nvm/v$1/"
+	echo "Using Node- $nodeDirPath"
+	rm "$HOME/AppData/Roaming/nvm/nodejs"
+	ln -sT "$nodeDirPath" "$HOME/AppData/Roaming/nvm/nodejs"
+
+	echo "Node version: (node -v)"
+	node -v
+}
+
+# You must first install the versions using nvm install- e.g. nvm install 20
+# Then run nvm list and make sure the versions listed below are correct
+alias node14="nvmuse 14.21.3"
+alias node18="nvmuse 18.19.1"
+alias node20="nvmuse 20.11.1"
+
+
+
+
